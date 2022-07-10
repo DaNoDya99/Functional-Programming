@@ -18,6 +18,8 @@ object Q3 {
     override def toString(): String = {
       return m.toString
     }
+
+    def getValue(): Int = m
   }
 
   def --(n: Int): Int = {
@@ -31,25 +33,25 @@ object Q3 {
   }
 
   @main def main(args: String*) : Unit = {
-    var (a,b,c,d) = (2,3,4,5)
+    var b = 3
     var k = 4.3f
     var (f , g)  = (12.0f,4.0f)
 
-    var num_d = new int(d)
-    var num_a = new int(a)
-    var num_c = new int(c)
+    var d = new int(5)
+    var a = new int(2)
+    var c = new int(4)
 
-    println(--(b)*a + c*num_d.++().toString().toInt)
+    println(--(b)*a.getValue() + c.getValue()*d.++().getValue())
     b -= 1
 
-    println(num_a.++())
+    println(a.++())
 
-    println(-2*(g-k) + num_c.toString().toInt)
-    num_c = num_c.++()
+    println(-2*(g-k) + c.getValue())
+    c = c.++()
 
-    println(num_c)
+    println(c)
 
-    c = ++(num_c.toString().toInt) * num_a.++().toString().toInt
+    c.m = ++(c.getValue()) * a.getValue()
     println(c)
   }
 }
